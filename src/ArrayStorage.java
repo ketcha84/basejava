@@ -6,7 +6,7 @@ public class ArrayStorage {
 
     void clear() {
         for (int i = 0; i < storage.length; i++) {
-           this.storage[i] = null;
+            this.storage[i] = null;
         }
     }
 
@@ -39,8 +39,8 @@ public class ArrayStorage {
             }
         }
         if (!notFound) {
-            for (int i = elementIndex; i < size(); i++) {
-                storage[i] = storage[i + 1];
+            for (int i = elementIndex; i < storage.length - 1; i++) {
+                this.storage[i] = this.storage[i + 1];
             }
         }
 
