@@ -32,6 +32,23 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
+        int elementIndex = 0;
+        boolean notFound = true;
+        for (int i = 0; i < size(); i++) {
+            if (storage[i].uuid.equals(uuid)) {
+                storage[i] = null;
+                elementIndex = i;
+                notFound = false;
+                break;
+            }
+        }
+        if (!notFound) {
+            for (int i = elementIndex; i < size(); i++) {
+                Resume temp = storage[i + 1];
+                storage[i] = temp;
+            }
+        }
+
     }
 
     /**
