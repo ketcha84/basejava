@@ -11,8 +11,15 @@ public class ArrayStorage {
     }
 
     void save(Resume r) {
-        storage[size()] = new Resume();
-        storage[size()].uuid = r.uuid;
+        add:
+        {
+            if (size() == 10000) {
+                break add;
+            } else {
+                storage[size()] = new Resume();
+                storage[size()].uuid = r.uuid;
+            }
+        }
     }
 
     Resume get(String uuid) {
