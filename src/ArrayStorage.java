@@ -5,8 +5,8 @@ public class ArrayStorage {
     Resume[] storage = new Resume[10000];
 
     void clear() {
-        for (int i = 0; i < size(); i++) {
-            storage[i] = null;
+        for (int i = 0; i < storage.length; i++) {
+           this.storage[i] = null;
         }
     }
 
@@ -40,8 +40,7 @@ public class ArrayStorage {
         }
         if (!notFound) {
             for (int i = elementIndex; i < size(); i++) {
-                Resume temp = storage[i + 1];
-                storage[i] = temp;
+                storage[i] = storage[i + 1];
             }
         }
 
