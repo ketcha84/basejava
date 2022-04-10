@@ -11,14 +11,9 @@ public class ArrayStorage {
     }
 
     void save(Resume r) {
-        add:
-        {
-            if (size() == 10000) {
-                break add;
-            } else {
-                storage[size()] = new Resume();
-                storage[size()].uuid = r.uuid;
-            }
+        if (size() != 10000) {
+            storage[size()] = new Resume();
+            storage[size()].uuid = r.uuid;
         }
     }
 
