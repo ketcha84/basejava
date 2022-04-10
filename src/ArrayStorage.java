@@ -25,12 +25,10 @@ public class ArrayStorage {
     }
 
     int size() {
-        int size;
         int iterator = 0;
         while (storage[iterator] != null && iterator < 10000) {
             iterator++;
         }
-        size = iterator;
-        return size;
+        return iterator;
     }
 }
