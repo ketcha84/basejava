@@ -11,11 +11,13 @@ public class ArrayStorage {
     }
 
     void save(Resume r) {
+        storage[size()] = new Resume();
+        storage[size()].uuid = r.uuid;
     }
 
     Resume get(String uuid) {
         for (Resume resume : storage) {
-            if(resume.uuid.equals(uuid)){
+            if (resume.uuid.equals(uuid)) {
                 return resume;
             }
         }
