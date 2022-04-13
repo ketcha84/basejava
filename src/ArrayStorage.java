@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Arrays;
 
 /**
@@ -21,31 +22,22 @@ public class ArrayStorage {
     }
 
     Resume get(String uuid) {
-        for (Resume resume : storage) {
-            if (resume.uuid.equals(uuid)) {
-                return resume;
+        for (int i = 0; i < size(); i++) {
+            if (this.storage[i].uuid.equals(uuid)) {
+                return storage[i];
             }
         }
-        return null;
+        return new Resume();
     }
 
     void delete(String uuid) {
-        int elementIndex = 0;
-        boolean notFound = true;
+        int size = size();
         for (int i = 0; i < size(); i++) {
             if (storage[i].uuid.equals(uuid)) {
-                storage[i] = null;
-                elementIndex = i;
-                notFound = false;
+                System.arraycopy(this.storage, i + 1, this.storage, i, size - i);
                 break;
             }
         }
-        if (!notFound) {
-            for (int i = elementIndex; i < storage.length - 1; i++) {
-                this.storage[i] = this.storage[i + 1];
-            }
-        }
-
     }
 
     /**
@@ -58,7 +50,7 @@ public class ArrayStorage {
 
     int size() {
         int iterator = 0;
-        while (storage[iterator] != null && iterator < 10000) {
+        while (this.storage[iterator] != null && iterator < 10000) {
             iterator++;
         }
         return iterator;
